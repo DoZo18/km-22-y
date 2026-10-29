@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffe3ee">
+<title>Happy Birthday มุก 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="decor" aria-hidden="true">
+    <div class="bunting" id="bunting"></div>
+    <div class="balloon b1"></div>
+    <div class="balloon b2"></div>
+    <div class="balloon b3"></div>
+    <div class="balloon b4"></div>
+    <div class="floor"></div>
+  </div>
+  <div id="dark"></div>
+  <canvas id="confetti"></canvas>
+  <div id="fx"></div>
+
+  <nav id="progress" aria-label="ขั้นตอน">
+    <div class="dots" id="dots"></div>
+    <div class="step-label" id="stepLabel"></div>
+  </nav>
+  <button id="mute" class="icon-btn" aria-label="ปิดเสียง">🔊</button>
+
+  <main id="stage">
+    <!-- 1. หน้าเปิด -->
+    <section class="scene active" id="intro">
+      <div class="pig pig-big wave bounce" data-hat="1"></div>
+      <h1 class="title">มุกจ๋า~ 💗</h1>
+      <p class="sub">วันนี้เป็นวันพิเศษ<br>หมูโดสเลยเตรียมเซอร์ไพรส์มาให้</p>
+      <button class="btn" id="startBtn">เริ่มเลย ✨</button>
+      <p class="hint">เปิดเสียงด้วยนะ 🔈</p>
+    </section>
+
+    <!-- 2-5. เค้ก ปักเทียน จุดไฟ เป่าเทียน -->
+    <section class="scene" id="cake">
+      <div class="bubble" id="cakeSay"></div>
+      <div class="cake-wrap" id="cakeWrap">
+        <div class="glow" id="glow"></div>
+        <svg id="cakeSvg" viewBox="0 0 240 230" aria-label="เค้กวันเกิด">
+          <ellipse cx="120" cy="208" rx="112" ry="16" fill="#fff" stroke="#f5c4d2" stroke-width="3"/>
+          <!-- ชั้นล่าง -->
+          <rect x="28" y="130" width="184" height="76" rx="16" fill="#ffd3df"/>
+          <ellipse cx="120" cy="130" rx="92" ry="15" fill="#fff6f9"/>
+          <path d="M30 128 H210 V134 q-6 18 -12 0 q-8 22 -16 0 q-7 14 -14 0 q-8 24 -16 0 q-7 14 -14 0 q-8 20 -16 0 q-7 14 -14 0 q-8 22 -16 0 q-7 14 -14 0 q-8 20 -16 0 q-7 14 -14 0 q-8 18 -16 0 Z" fill="#fff6f9"/>
+          <text x="120" y="186" text-anchor="middle" class="cake-text" font-size="17" fill="#e8698e">Happy Birthday</text>
+          <g fill="#8fd3ff"><circle cx="48" cy="170" r="2.5"/><circle cx="196" cy="160" r="2.5"/><circle cx="70" cy="196" r="2.5"/></g>
+          <g fill="#ffd166"><circle cx="58" cy="158" r="2.5"/><circle cx="184" cy="192" r="2.5"/><circle cx="170" cy="198" r="2"/></g>
+          <g fill="#b8f2a1"><circle cx="40" cy="190" r="2.2"/><circle cx="200" cy="180" r="2.2"/></g>
+          <circle cx="44" cy="128" r="7" fill="#ff4d6d"/><circle cx="42" cy="126" r="2" fill="#fff" opacity=".8"/>
+          <circle cx="196" cy="128" r="7" fill="#ff4d6d"/><circle cx="194" cy="126" r="2" fill="#fff" opacity=".8"/>
+          <!-- ชั้นบน -->
+          <rect x="62" y="80" width="116" height="58" rx="14" fill="#ffb0c6"/>
+          <ellipse cx="120" cy="80" rx="58" ry="11" fill="#fff6f9"/>
+          <path d="M64 78 H176 V84 q-5 14 -10 0 q-6 18 -12 0 q-5 12 -10 0 q-6 18 -12 0 q-5 12 -10 0 q-6 16 -12 0 q-5 12 -10 0 q-6 18 -12 0 q-5 12 -10 0 q-6 14 -12 0 Z" fill="#fff6f9"/>
+          <text x="120" y="126" text-anchor="middle" class="cake-text" font-size="20" fill="#fff" id="cakeName">มุก</text>
+          <path d="M78 116 c-4 -4 -9 0 -5 5 l5 5 l5 -5 c4 -5 -1 -9 -5 -5z" fill="#ff7aa2"/>
+          <path d="M162 116 c-4 -4 -9 0 -5 5 l5 5 l5 -5 c4 -5 -1 -9 -5 -5z" fill="#ff7aa2"/>
+          <g id="candles"></g>
+        </svg>
+        <div class="pig pig-side bounce" id="cakePig" data-hat="1"></div>
+      </div>
+      <div class="controls" id="cakeCtl"></div>
+    </section>
+
+    <!-- 6. ของขวัญ -->
+    <section class="scene" id="gift">
+      <div class="bubble" id="giftSay"></div>
+      <div class="gift-wrap" id="giftBox">
+        <svg viewBox="0 0 200 200" aria-label="กล่องของขวัญ">
+          <rect x="30" y="92" width="140" height="96" rx="8" fill="#ff8fb1"/>
+          <g fill="#fff" opacity=".55">
+            <circle cx="52" cy="116" r="5"/><circle cx="70" cy="150" r="5"/><circle cx="48" cy="170" r="4"/>
+            <circle cx="148" cy="118" r="5"/><circle cx="132" cy="152" r="5"/><circle cx="152" cy="172" r="4"/>
+          </g>
+          <rect x="90" y="92" width="20" height="96" fill="#ffd43b"/>
+          <g id="lid">
+            <rect x="22" y="70" width="156" height="28" rx="6" fill="#ff6f9c"/>
+            <rect x="90" y="70" width="20" height="28" fill="#ffc61a"/>
+            <ellipse cx="80" cy="60" rx="22" ry="12" fill="#ffd43b" stroke="#f2b705" stroke-width="3" transform="rotate(-20 80 60)"/>
+            <ellipse cx="120" cy="60" rx="22" ry="12" fill="#ffd43b" stroke="#f2b705" stroke-width="3" transform="rotate(20 120 60)"/>
+            <circle cx="100" cy="66" r="9" fill="#ffc61a" stroke="#f2b705" stroke-width="3"/>
+          </g>
+        </svg>
+        <div class="pig pig-side bounce" id="giftPig"></div>
+      </div>
+      <div class="controls" id="giftCtl"></div>
+    </section>
+
+    <!-- 7. อัลบั้ม -->
+    <section class="scene" id="album">
+      <div class="bubble" id="albumSay"></div>
+      <div class="board" id="board"><p class="board-hint pulse" id="boardHint">👆 แตะเลย</p></div>
+      <div class="controls" id="albumCtl"></div>
+    </section>
+
+    <!-- 8. จดหมาย -->
+    <section class="scene" id="letter">
+      <div class="bubble" id="letterSay">หมูโดสฝากจดหมายมาด้วย<br>แตะที่ซองเพื่อเปิดเลย 💌</div>
+      <div class="envelope" id="envelope">
+        <div class="env-back"></div>
+        <div class="paper"><b>ถึง มุก 💕</b><br>…</div>
+        <div class="env-front"></div>
+        <div class="flap"></div>
+        <div class="seal">💗</div>
+      </div>
+      <div class="pig pig-small wave bounce"></div>
+    </section>
+  </main>
+
+  <div class="letter-full" id="letterFull">
+    <div class="letter-card" id="letterCard">
+      <div class="letter-text" id="letterText"></div>
+      <div class="letter-end" id="letterEnd">
+        <div class="pig pig-mid hold bounce" data-hold="heart"></div>
+        <button class="btn" id="replay">ดูอีกครั้ง 🔁</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <figure class="big-snap">
+      <div class="photo" id="lbPhoto"><img id="lbImg" alt=""></div>
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
